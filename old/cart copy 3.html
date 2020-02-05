@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CART</title>
+  </head>
+  <body>
+    <h1 id="para">CART</h1>
+    <img id="pics" />
+
+    <ul id="ul"></ul>
+
+    <!-- <ul id="ul"></ul> -->
+    <input type="submit" value="Submit" />
+  </body>
+  <script>
+    ////get nproduct number from URL
+    let url = new URL(window.location.href);
+    const params = new URLSearchParams(url.search);
+    const _id = params.get("_id");
+    const option = params.get("option");
+    const h2num = document.getElementById("h2num");
+    let count = -1;
+    const para = document.getElementById("para");
+    const ul = document.getElementById("ul");
+    var response = "";
+    const pics = document.getElementById("pics");
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+    // function displ(el) {
+    //   // count += 1;
+    //   request.open("GET", "http://localhost:3000/api/cameras/" + el);
+    //   request.send();
+    // }
+    var data;
+    requests = new Array(cart.length);
+
+    // function loop () {
+    const loop = () => {
+      for (let i = 0; i < cart.length; i++) {
+        var url2 = "http://localhost:3000/api/cameras/" + cart[i]._id;
+
+        requests[i] = new XMLHttpRequest();
+        requests[i].open("GET", url2);
+                // requests[i].open("GET", url2, false);
+        
+
+        //  return Promise.all(cart)
+
+        //  for ()
+        // for (let i = 0; i < cart.length; i++) {
+        // await checkNumProduct(i);
+        requests[i].onload = function() {
+          //  async function   displAll () {
+          //  requests.onreadystatechange = function () {
+          //  if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+          data = JSON.parse(requests[i].responseText);
+          console.log(data);
+          count = i;
+          createListElements(data);
+          // if (count == (document.getElementsByTagName("li").length / 5))
+        };
+        // };
+        // displAll();
+        //  return Promise.all(requests)
+
+        requests[i].send();
+      }
+    };
+    loop();
+
+    function createListElements(el) {
+      createListElement(el.name);
+      createListElement(el.lenses[option]);
+      createListElement(el.price + " €");
+      createListElement("request n° : " + count);
+      createListElement("-----------------");
+    }
+
+    function createListElement(el) {
+      var li = document.createElement("li"); // creates an element "li"
+      li.appendChild(document.createTextNode(el)); //makes text from input field the li text
+      ul.appendChild(li);
+    }
+  </script>
+</html>

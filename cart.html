@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="favicon-16x16.png" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CART</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="nav nav-pills nav-fill">
+        <a class="nav-item nav-link " href="index.html">INDEX</a>
+        <a class="nav-item nav-link " href="product.html">PRODUCT</a>
+        <a class="nav-item nav-link active" href="cart.html">CART</a>
+        <a class="nav-item nav-link" href="order.html">ORDER</a>
+      </nav>
+      <h2 class="text-center">CART</h2>
+
+      <div class="container" >
+        <div class="row justify-content-md-center">
+        <!-- <p id="result"></p> -->
+
+       
+
+        <div class="col-md-5 order-md-2 mb-4 mr-5">
+          <h4 class="text-center m-3">
+            <span class="text-muted ">Votre panier</span>
+          </h4>
+          <ul id="ul" class="list-group mb-3"></ul>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total </span>
+            <strong id="totalDiv">$20</strong>
+          </li>
+        </div>
+
+      <div class="col-md-5 order-md-2 mb-4 mr-5">
+        <h4 class="text-center m-3">
+          <span class="text-muted ">Vos coordonnées</span>
+        </h4>
+ <form method="post" action="" >
+          <p>
+                    <p id="result"></p>
+<div class="form-group">
+  <label for="firstName">Prénom :</label>
+  <input id="firstName" type="text" maxlength="20" required name="firstName" class="form-control" placeholder="">
+</div>
+<div class="form-group">
+  <label for="lastName">Nom :</label>
+  <input id="lastName" type="text" maxlength="40" required name="lastName" class="form-control"
+     placeholder="">
+</div>
+<div class="form-group">
+            <label for="address">Adresse :</label>
+  <input id="address" type="text" maxlength="50" required name="address" class="form-control" placeholder="">
+</div>
+<div class="form-group">
+  <label for="city">Ville :</label>
+  <input id="city"" type="text" maxlength="40" required name="city"" class="form-control" placeholder="">
+</div>
+<div class="form-group">
+            <label for="email">Email :</label>
+  <input id="email" type="email" maxlength="40" required name="email" class="form-control" placeholder="">
+</div>
+                   
+            <input type="submit" class="btn btn-primary" value="Submit" />
+          </p>
+        </form>
+        </div>
+        <!-- <input id="submit" type="submit" value="Submit" /> -->
+      </div>
+      </div>
+    </div>
+  </body>
+  <script></script>
+  <script type="text/javascript " src="cart.js"></script>
+</html>
