@@ -1,140 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="icon" type="image/png" href="favicon-16x16.png" />
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+<head>
+    <link rel="icon" type="image/png" href="favicon-16x16.png" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>PRODUCT</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container-fluid">
-    <nav class="nav nav-pills nav-fill">
-      <a class="nav-item nav-link " href="index.html">INDEX</a>
-      <a class="nav-item nav-link active" href="product.html">PRODUCT</a>
-      <a class="nav-item nav-link" href="cart.html">CART</a>
-      <a class="nav-item nav-link" href="order.html">ORDER</a>
-    </nav>
-    <h2 class="text-center">PRODUCT</h2>
-    
-    <div class="pt-3  ">
-      <div class="card text-center m-auto" style="width: 28rem;">
-      <img id="pics" style="" class="card-img-top  h-100 img-fluid"" alt="...">
-      <div class="card-body">
-        <h5 class="card-title" id="h2name">Card title</h5>
-        <p class="card-text text-justify" id="h2descr">Some quick example text to build on the card title and make up the bulk of the card's content.
-        </p>
-        <a href="#" class="btn btn-info"  id="h2price">Go somewhere</a>
-      </div>
+        <nav class="nav nav-pills nav-fill">
+            <a class="nav-item nav-link " href="index.html">INDEX</a>
+            <a class="nav-item nav-link active" href="product.html">PRODUCT</a>
+            <a class="nav-item nav-link" href="cart.html">CART</a>
+            <a class="nav-item nav-link" href="order.html">ORDER</a>
+        </nav>
+        <h1 class="text-center">PRODUCT</h1>
+
+        <div class="pt-3  ">
+            <div class="card text-center m-auto" style="width: 28rem;">
+                <img id="productPic" class="card-img-top h-100 img-fluid" alt=" ...">
+                <div class="card-body">
+                    <h2 class="card-title" id="productName">Card title</h2>
+                    <p class="card-text text-justify" id="productDescr">
+                        Some quick example text to build on the card title and make up the
+                        bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-info" id="productPrice">Go somewhere</a>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center;">
+                <form id="form" class="text-center mx-auto mt-3">
+                    <select id="select" class="custom-select custom-select-lg mb-3">
+                    </select>
+
+                    <input type="submit" class="btn btn-primary" value="Submit" />
+                </form>
+            </div>
+        </div>
     </div>
 
-    <!-- <ul id="ul"></ul> -->
-    <div style="display: flex; align-items: center;">
-      <!-- <h2 id="h2name">numéro : ...</h2> -->
-      <form id="form" class="text-center mx-auto mt-3">
-        <!-- <select id="select"> </select> -->
-        <select  id="select" class="custom-select custom-select-lg mb-3">
-          <!-- <option selected>Objectif</option> -->
-         
-        </select>
+</body>
+<script type="text/javascript " src="js/product.js"></script>
 
-
-        <input type="submit" class="btn btn-primary" value="Submit" />
-      </form>
-    </div>
-    <ul id="ul"></ul>
-    </div>
-    </div>
-    
-
-    <!-- <h2 id="h2descr">description : ...</h2> -->
-    <!-- <h2 id="h2price">price : ...</h2> -->
-
-    <!-- <h2 id="h2option">option : ...</h2> -->
-   
-  </body>
-  <script>
-    ////get nproduct number from URL
-    let url = new URL(window.location.href);
-    const params = new URLSearchParams(url.search);
-    const _id = params.get("_id");
-    const h2num = document.getElementById("h2num");
-    let numOption = 0;
-
-    var response = "";
-    var request = new XMLHttpRequest();
-    const pics = document.getElementById("pics");
-    request.onreadystatechange = function() {
-      if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-        response = JSON.parse(this.responseText);
-        // console.log("lenses : " + response[1].lenses);
-        console.log(response);
-        pics.src = response.imageUrl;
-        pics.style.height = "200px";
-        h2name.textContent =  response.name;
-        h2descr.textContent =  response.description;
-        h2price.textContent =  response.price + " €";
-        // h2option.textContent = "OPTION : " + response.lenses;
-
-        //Get the first key name of a javascript object = option
-        const option = Object.keys(response)[0];
-        const options = response[Object.keys(response)[0]];
-        // h2option.textContent = option + " : " + response.lenses;
-
-        // response[0].name;
-        options.forEach(item => createListElement(item));
-      }
-    };
-
-    request.open("GET", "http://localhost:3000/api/cameras/" + _id);
-
-    // request.open("GET", "http://localhost:3000/api/cameras/");
-
-    request.send();
-    const para = document.getElementById("para");
-    const ul = document.getElementById("ul");
-    // para.textContent = response[0];
-
-    //https://codepen.io/JohnPaulFich/pen/MXmzzM
-    function createListElement(el) {
-      const select = document.getElementById("select");
-      var option = document.createElement("option"); // creates an element "li"
-      option.text = el; //makes text from input field the li text
-      select.add(option); //adds li to ul
-      // input.value = ""; //Reset text input field
-    }
-    let form = document.getElementById("form");
-
-    form.onsubmit = function() {
-      event.preventDefault();
-      // consolelog("hello")
-
-      let url = new URL("http://127.0.0.1:5500/cart.html");
-      let params = new URLSearchParams(url.search);
-      params.append("_id", _id);
-      params.append("option", select.selectedIndex);
-      location.href = url + "?" + params.toString();
-      // location.href = "cart.html" + "?" + _id +"&"+ };
-
-      numOption = select.selectedIndex;
-      let cart = [];
-      if (localStorage.getItem("cart") !== null) {
-        cart = JSON.parse(localStorage.getItem("cart"));
-      }
-
-      let item = {
-        _id: _id,
-        option: numOption
-      };
-      cart.push(item);
-      let cart_json = JSON.stringify(cart);
-      localStorage.setItem("cart", cart_json);
-    };
-    // localStorage.setItem("produc", "Smith");
-
-    //
-  </script>
 </html>

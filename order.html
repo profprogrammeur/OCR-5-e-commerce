@@ -1,67 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link rel="icon" type="image/png" href="favicon-16x16.png" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+<head>
+    <link rel="icon" type="image/png" href="favicon-16x16.png" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>ORDER</title>
-  </head>
-  <body>
-    <!-- <h1 id="para" class="text-center">ORDER</h1> -->
-    <!-- <p id="result"></p> -->
-  
-<div class="container-fluid">
-  <nav class="nav nav-pills nav-fill">
-    <a class="nav-item nav-link " href="index.html">INDEX</a>
-    <a class="nav-item nav-link " href="product.html">PRODUCT</a>
-    <a class="nav-item nav-link " href="cart.html">CART</a>
-    <a class="nav-item nav-link active" href="order.html">ORDER</a>
-  </nav>
-  <h2 class="text-center"></h2>
+</head>
 
-  <div class="container">
-    <div class="row justify-content-md-center ">
-      <!-- <p id="result"></p> -->
+<body>
+    <div class="container-fluid">
+        <nav class="nav nav-pills nav-fill">
+            <a class="nav-item nav-link " href="index.html">INDEX</a>
+            <a class="nav-item nav-link " href="product.html">PRODUCT</a>
+            <a class="nav-item nav-link " href="cart.html">CART</a>
+            <a class="nav-item nav-link active" href="order.html">ORDER</a>
+        </nav>
+        <h1 class="text-center">ORDER</h1>
 
+        <div class="container">
+            <div class="row justify-content-md-center ">
+                <div class="col-md order-md-2 mb-4 ">
+                    <h4 class="text-center m-3">
+                        <span class="text-muted ">Merci pour votre commande</span>
+                    </h4>
+                    <li class="list-group-item d-flex justify-content-between ">
+                        <span>Total : </span>
+                        <strong id="totalDiv">$20</strong>
+                    </li>
+                    <li class="list-group-item  d-lg-flex justify-content-between lg-flex-column">
+                        <span>Identifiant de commande : </span>
+                        <strong id="orderIdDiv">$20</strong>
+                    </li>
+                </div>
+            </div>
+        </div>
+</body>
 
+<script></script>
+<script type="text/javascript " src="js/order.js"></script>
 
-      <div class="col-md order-md-2 mb-4 ">
-        <h4 class="text-center m-3">
-          <span class="text-muted ">Merci pour votre commande</span>
-        </h4>
-        <!-- <ul id="ul" class="list-group mb-3"></ul> -->
-        <li class="list-group-item d-flex justify-content-between ">
-          <span>Total : </span>
-          <strong id="totalDiv">$20</strong>
-        </li>
-        <li class="list-group-item  d-lg-flex justify-content-between lg-flex-column">
-          <span >Identifiant de commande : </span>
-          <strong id="orderIdDiv">$20</strong>
-        </li>
-      </div>
-      </div>
-      </div>
-
-
-
-
-
-
-
-<!-- 
-    <img id="pics" />
-    <div id="totalDiv">TOTAL :</div>
-    <div id="orderIdDiv">orderId :</div>
-
-    <ul id="ul"></ul> -->
-
-    <!-- <ul id="ul"></ul> -->
-    <!-- <input id="submit" type="submit" value="Submit" /> -->
-  </body>
-  <script></script>
-  <script type="text/javascript " src="order.js"></script>
 </html>
