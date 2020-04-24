@@ -7,30 +7,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/main.css">
+
     <title>PRODUCT</title>
 </head>
 
 <body>
     <div class="container-fluid">
-        <nav class="nav nav-pills nav-fill">
-            <a class="nav-item nav-link " href="index.html">INDEX</a>
-            <a class="nav-item nav-link active" href="product.html">PRODUCT</a>
-            <a class="nav-item nav-link" href="cart.html">CART</a>
-            <a class="nav-item nav-link" href="order.html">ORDER</a>
-        </nav>
-        <h1 class="text-center">PRODUCT</h1>
+<div class="row justify-content-around " id="header" data-pagename="product">
+</div>
+    <h1 class="text-center ">PRODUIT</h1>
 
-        <div class="pt-3  ">
-            <div class="card text-center m-auto" style="width: 28rem;">
-                <img id="productPic" class="card-img-top h-100 img-fluid" alt=" ...">
-                <div class="card-body">
-                    <h2 class="card-title" id="productName">Card title</h2>
-                    <p class="card-text text-justify" id="productDescr">
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </p>
-                    <a href="#" class="btn btn-info" id="productPrice">Go somewhere</a>
-                </div>
+            <div class="card text-center  m-auto p-3 col-8" style="" id="card">    
+
             </div>
 
             <div style="display: flex; align-items: center;">
@@ -38,13 +27,16 @@
                     <select id="select" class="custom-select custom-select-lg mb-3">
                     </select>
 
-                    <input type="submit" class="btn btn-primary" value="Submit" />
+                    <input type="submit" class="btn btn-primary" value="Valider" />
                 </form>
             </div>
         </div>
     </div>
 
 </body>
+<script type="text/javascript " src="js/main.js"></script>
 <script type="text/javascript " src="js/product.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 </html>

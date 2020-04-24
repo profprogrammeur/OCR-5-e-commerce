@@ -1,8 +1,12 @@
-////get nproduct number from URL
 
-const totalDiv = document.getElementById("totalDiv");
+const totalDiv = document.getElementById("totalOrderDiv");
 const orderIdDiv = document.getElementById("orderIdDiv");
 
 const cart = JSON.parse(localStorage.getItem("order"));
-totalDiv.textContent = cart.total + " €";
+
+if (cart.orderId === undefined) {
+    location.href = "home.html"
+}
+
+totalDiv.textContent = globalNumberWithSpaces(cart.total) ;
 orderIdDiv.textContent = cart.orderId;

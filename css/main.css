@@ -1,0 +1,26 @@
+
+  
+  @media only screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .navbar-brand {
+                position: absolute;
+                /* left: 1px; */
+                right: 20px;
+                margin: 0 auto;
+            }
+            .list-item, .delete-button,h6, .price, .option, #totalDiv,
+            #productDescr,#productPrice {
+                font-size: xx-small;
+            }
+            h4,#productName,#select   {
+                font-size: 1.1em;
+            }
+        }
+        @media only screen and (min-width: 490px) {
+            .navbar-brand {
+                position: relative;
+                margin-top: 0.7em;
+            }
+        }

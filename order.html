@@ -7,39 +7,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/main.css">
     <title>ORDER</title>
 </head>
 
 <body>
     <div class="container-fluid">
-        <nav class="nav nav-pills nav-fill">
-            <a class="nav-item nav-link " href="index.html">INDEX</a>
-            <a class="nav-item nav-link " href="product.html">PRODUCT</a>
-            <a class="nav-item nav-link " href="cart.html">CART</a>
-            <a class="nav-item nav-link active" href="order.html">ORDER</a>
-        </nav>
-        <h1 class="text-center">ORDER</h1>
+        <div class="row justify-content-around " id="header" data-pagename="order">
+        </div>
+        <h1 class="text-center">COMMANDE</h1>
 
         <div class="container">
             <div class="row justify-content-md-center ">
-                <div class="col-md order-md-2 mb-4 ">
+                <div id="orderDiv" class="col-md order-md-2 mb-4 ">
                     <h4 class="text-center m-3">
                         <span class="text-muted ">Merci pour votre commande</span>
                     </h4>
-                    <li class="list-group-item d-flex justify-content-between ">
+                    <li class=" list-group-item d-flex justify-content-between ">
                         <span>Total : </span>
-                        <strong id="totalDiv">$20</strong>
+                        <strong id="totalOrderDiv">$0</strong>
                     </li>
-                    <li class="list-group-item  d-lg-flex justify-content-between lg-flex-column">
-                        <span>Identifiant de commande : </span>
-                        <strong id="orderIdDiv">$20</strong>
+                    <li class="   list-group-item  d-lg-flex justify-content-between lg-flex-column">
+                        <span >Identifiant de commande : </span>
+                        <strong id="orderIdDiv">xxx</strong>
                     </li>
                 </div>
             </div>
         </div>
 </body>
 
-<script></script>
+<script type="text/javascript " src="js/main.js"></script>
 <script type="text/javascript " src="js/order.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
 
 </html>

@@ -1,56 +1,99 @@
-let url = new URL(window.location.href);
-const params = new URLSearchParams(url.search);
-const _id = params.get("_id");
-let numOption = 0;
-let response = "";
-let request = new XMLHttpRequest();
-const productPic = document.getElementById("productPic");
-let form = document.getElementById("form");
+"use strict";
 
-request.onreadystatechange = function () {
-    if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-        response = JSON.parse(this.responseText);
-        displayProduct(response);
-        //Get the first key name of a javascript object = option
-        const options = response[Object.keys(response)[0]];
-        options.forEach(item => createListElement(item));
+// ////////////////////////////////////////////////////
+class Model {
+    ///////////////////////////////////////
+    getProductId() {
+        const url = new URL(window.location.href);
+        const params = new URLSearchParams(url.search);
+        const _id = params.get("_id");
+        this._id = _id;
+        if (_id ===null) {
+            location.href = "home.html"
+        }
+
+        return _id
     }
-};
-request.open("GET", "http://localhost:3000/api/cameras/" + _id);
-request.send();
+    getProducts = globalGetProducts
 
-function displayProduct(response) {
-    productPic.src = response.imageUrl;
-    productPic.style.height = "200px";
-    productName.textContent = response.name;
-    productDescr.textContent = response.description;
-    productPrice.textContent = response.price + " €";
+    pushToLocalstorage(numOption) {
+        let cart = [];
+        if (localStorage.getItem("cart") !== null) {
+            cart = JSON.parse(localStorage.getItem("cart"));
+        }
+        let item = {
+            _id: app.model._id,
+            option: numOption
+        };
+        cart.push(item);
+        let cart_json = JSON.stringify(cart);
+        localStorage.setItem("cart", cart_json);
+        app.model.goToCart(numOption)
+    }
+    goToCart() {
+        let url = new URL("http://127.0.0.1:5500/cart.html");
+        // let params = new URLSearchParams(url.search);
+        location.href = url ;
+    }
+     numberWithSpaces=globalNumberWithSpaces
 }
 
-function createListElement(el) {
-    const select = document.getElementById("select");
-    let option = document.createElement("option");
-    option.text = el;
-    select.add(option);
+
+
+// ///////////////////////////////////
+class View {
+    ///////////////////////////////////////
+    constructor() {
+        this.card = document.getElementById("card");
+        this.select = document.getElementById("select");
+        this.form = document.getElementById("form");
+    }
+    renderProductCard(product) {
+        console.log(product)
+        const markup = `
+            <img src=${product.imageUrl} class="card-img-top h-100 img-fluid" alt="appareil photo">
+                <div class="card-body">
+                    <h2 class="card-title" id="productName">${product.name}</h2>
+                    <p class="card-text text-justify" id="productDescr">
+                       ${product.description}
+                    </p>
+                    <a href="#" class="btn btn-info" id="productPrice">${product.price}</a>
+                </div>
+            `;
+        this.card.insertAdjacentHTML('beforeend', markup);
+        const options = product[Object.keys(product)[0]];
+        options.forEach(el => {
+            const option = `<option>${el}</option>`;
+            select.insertAdjacentHTML('beforeend', option);
+        })
+    }
+    bindChooseOption(handler) {
+        this.form.addEventListener('submit', event => {
+            event.preventDefault();
+            handler(select.selectedIndex)
+        }
+        )
+    }
 }
 
-form.onsubmit = function () {
-    event.preventDefault();
-    let url = new URL("http://127.0.0.1:5500/cart.html");
-    let params = new URLSearchParams(url.search);
-    params.append("_id", _id);
-    params.append("option", select.selectedIndex);
-    location.href = url + "?" + params.toString();
-    numOption = select.selectedIndex;
-    let cart = [];
-    if (localStorage.getItem("cart") !== null) {
-        cart = JSON.parse(localStorage.getItem("cart"));
+////////////////////////////////////////
+class Controller {
+    ///////////////////////////////////////
+    constructor(model, view) {
+        this.model = model
+        this.view = view
+        model.getProducts(model.getProductId())
+            .then(products => {
+                products.price = model.numberWithSpaces(products.price)
+                view.renderProductCard(products)
+            });
+        view.bindChooseOption(model.pushToLocalstorage)
     }
-    let item = {
-        _id: _id,
-        option: numOption
-    };
-    cart.push(item);
-    let cart_json = JSON.stringify(cart);
-    localStorage.setItem("cart", cart_json);
-};
+}
+
+
+const app = new Controller(new Model(), new View())
+
+
+
+
