@@ -31,9 +31,11 @@ class Model {
         app.model.goToCart(numOption)
     }
     goToCart() {
-        let url = new URL("http://127.0.0.1:5500/cart.html");
+        // let url = new URL("http://127.0.0.1:5500/cart.html");
         // let params = new URLSearchParams(url.search);
-        location.href = url ;
+        // location.href = url ;
+        location.href = "cart.html";
+
     }
      numberWithSpaces=globalNumberWithSpaces
 }
