@@ -4,7 +4,7 @@
 /////////////////////////////////////////////////////
 class Model {
     /////////////////////////////////////
-//get a list of product from the API
+    //get a list of product from the API
     getProducts = globalGetProducts
 
     goToProductPage(num) {
@@ -33,7 +33,7 @@ class View {
             this.listGroup.insertAdjacentHTML('beforeend', markup);
         });
     }
-//get ansd handle the rank of the clicked item (same as rank of product in the list from the API)
+    //get ansd handle the rank of the clicked item (same as rank of product in the list from the API)
     bindChooseProduct(goToProductPage) {
         this.listGroup.addEventListener('click', event => {
             const itemNumber = Array.from(event.target.parentNode.children).indexOf(event.target);
@@ -47,7 +47,7 @@ class View {
 //CONTROLLER handles events and connects the VIEW and the MODEL/data
 ////////////////////////////////////////
 class Controller {
-///////////////////////////////////////
+    ///////////////////////////////////////
     constructor(model, view) {
         this.model = model
         this.view = view

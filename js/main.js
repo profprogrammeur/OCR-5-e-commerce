@@ -35,23 +35,23 @@ function renderHeader() {
 }
 renderHeader();
 
- async function globalGetProducts (id) { 
+async function globalGetProducts(id) {
 
     let url = "http://localhost:3000/api/cameras/";
-    if (id) {url += id}
+    if (id) { url += id }
     await fetch(url)
         .then((resp) => resp.json())
         .then(data => {
             this.result = data;
-// redirect if it returns an error message :
+            // redirect if it returns an error message :
             if (data.message) {
-            location.href = "home.html"
+                location.href = "home.html"
             }
         })
     return this.result
 }
 
-function globalNumberWithSpaces (x) {
+function globalNumberWithSpaces(x) {
     return (x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " €");
 }
 

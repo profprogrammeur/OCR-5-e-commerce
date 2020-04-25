@@ -8,7 +8,7 @@ class Model {
         const params = new URLSearchParams(url.search);
         const _id = params.get("_id");
         this._id = _id;
-        if (_id ===null) {
+        if (_id === null) {
             location.href = "home.html"
         }
 
@@ -31,13 +31,9 @@ class Model {
         app.model.goToCart(numOption)
     }
     goToCart() {
-        // let url = new URL("http://127.0.0.1:5500/cart.html");
-        // let params = new URLSearchParams(url.search);
-        // location.href = url ;
         location.href = "cart.html";
-
     }
-     numberWithSpaces=globalNumberWithSpaces
+    numberWithSpaces = globalNumberWithSpaces
 }
 
 

@@ -8,5 +8,5 @@ if (cart.orderId === undefined) {
     location.href = "home.html"
 }
 
-totalDiv.textContent = globalNumberWithSpaces(cart.total) ;
+totalDiv.textContent = globalNumberWithSpaces(cart.total);
 orderIdDiv.textContent = cart.orderId;
