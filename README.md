@@ -1,6 +1,6 @@
 ORINOCO
 
-This is the front end server for Project 5 of the Junior Web Developer path.
+This is the frontend for Project 5 of the  Web Developer path.
 
 Installation
 Clone this repo. 
@@ -10,7 +10,7 @@ Open the "home.html" file
 SERVER AT : 
 https://github.com/OpenClassrooms-Student-Center/JWDP5
 
-This is the back end server for Project 5 of the Junior Web Developer path.
+This is the back end server for Project 5 of the Web Developer path.
 
 Prerequisites
 You will need to have Node and npm installed locally on your machine.
